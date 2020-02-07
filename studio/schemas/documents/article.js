@@ -1,8 +1,8 @@
 import {format} from 'date-fns'
 
 export default {
-  name: 'sampleProject',
-  title: 'Sample project',
+  name: 'article',
+  title: 'Artikkel',
   type: 'document',
   fields: [
     {
@@ -14,7 +14,7 @@ export default {
       name: 'slug',
       title: 'Slug',
       type: 'slug',
-      description: 'Some frontend will require a slug to be set to be able to show the project',
+      description: 'Some frontend will require a slug to be set to be able to show the article',
       options: {
         source: 'title',
         maxLength: 96
@@ -23,28 +23,7 @@ export default {
     {
       name: 'publishedAt',
       title: 'Published at',
-      description: 'You can use this field to schedule projects where you show them',
-      type: 'datetime'
-    },
-    {
-      name: 'excerpt',
-      title: 'Excerpt',
-      type: 'simplePortableText'
-    },
-    {
-      name: 'members',
-      title: 'Members',
-      type: 'array',
-      of: [{type: 'projectMember'}]
-    },
-    {
-      name: 'startedAt',
-      title: 'Started at',
-      type: 'datetime'
-    },
-    {
-      name: 'endedAt',
-      title: 'Ended at',
+      description: 'You can use this field to schedule articles where you show them',
       type: 'datetime'
     },
     {
@@ -53,21 +32,15 @@ export default {
       type: 'figure'
     },
     {
-      name: 'categories',
-      title: 'Categories',
-      type: 'array',
-      of: [{type: 'reference', to: {type: 'category'}}]
-    },
-    {
       name: 'body',
       title: 'Body',
-      type: 'projectPortableText'
+      type: 'articlePortableText'
     },
     {
-      name: 'relatedProjects',
-      title: 'Related projects',
+      name: 'relatedArticles',
+      title: 'Related articles',
       type: 'array',
-      of: [{type: 'reference', to: {type: 'sampleProject'}}]
+      of: [{type: 'reference', to: {type: 'article'}}]
     }
   ],
   preview: {

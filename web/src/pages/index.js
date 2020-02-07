@@ -7,7 +7,7 @@ import {
 } from '../lib/helpers'
 import Container from '../components/container'
 import GraphQLErrorList from '../components/graphql-error-list'
-import ProjectPreviewGrid from '../components/project-preview-grid'
+import ArticlePreviewGrid from '../components/article-preview-grid'
 import SEO from '../components/seo'
 import Layout from '../containers/layout'
 
@@ -18,9 +18,7 @@ export const query = graphql`
       description
       keywords
     }
-    projects: allSanitySampleProject(
-      limit: 6
-      sort: {fields: [publishedAt], order: DESC}
+    articles: allSanityArticle(
       filter: {slug: {current: {ne: null}}, publishedAt: {ne: null}}
     ) {
       edges {
@@ -49,7 +47,6 @@ export const query = graphql`
             alt
           }
           title
-          _rawExcerpt
           slug {
             current
           }
@@ -71,8 +68,8 @@ const IndexPage = props => {
   }
 
   const site = (data || {}).site
-  const projectNodes = (data || {}).projects
-    ? mapEdgesToNodes(data.projects)
+  const articleNodes = (data || {}).articles
+    ? mapEdgesToNodes(data.articles)
       .filter(filterOutDocsWithoutSlugs)
       .filter(filterOutDocsPublishedInTheFuture)
     : []
@@ -88,10 +85,10 @@ const IndexPage = props => {
       <SEO title={site.title} description={site.description} keywords={site.keywords} />
       <Container>
         <h1 hidden>Welcome to {site.title}</h1>
-        {projectNodes && (
-          <ProjectPreviewGrid
+        {articleNodes && (
+          <ArticlePreviewGrid
             title='Home'
-            nodes={projectNodes}
+            nodes={articleNodes}
           />
         )}
       </Container>
