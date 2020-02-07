@@ -25,7 +25,7 @@ export default {
                 },
                 {
                   buildHookId: '5e3d5b54b73a1cc874037889',
-                  title: 'Portfolio Website',
+                  title: 'Eit',
                   name: 'eit-web',
                   apiId: '9ee90eb9-fab5-4b64-bbe2-05a437b38197'
                 }
@@ -48,10 +48,5 @@ export default {
       }
     },
     {name: 'project-users', layout: {height: 'auto'}},
-    {
-      name: 'document-list',
-      options: {title: 'Recent projects', order: '_createdAt desc', types: ['sampleProject']},
-      layout: {width: 'medium'}
-    }
   ]
 }
