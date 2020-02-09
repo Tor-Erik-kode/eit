@@ -29,5 +29,10 @@ export default {
       ],
       validation: Rule => Rule.required().min(1),
     },
+    {
+      name: 'related',
+      title: 'Related Content',
+      type: 'relatedContent',
+    },
   ],
 }

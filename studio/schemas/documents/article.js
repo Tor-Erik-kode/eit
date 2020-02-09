@@ -37,11 +37,10 @@ export default {
       type: 'articlePortableText'
     },
     {
-      name: 'relatedArticles',
-      title: 'Related articles',
-      type: 'array',
-      of: [{type: 'reference', to: {type: 'article'}}]
-    }
+      name: 'related',
+      title: 'Related Content',
+      type: 'relatedContent',
+    },
   ],
   preview: {
     select: {

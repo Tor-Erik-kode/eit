@@ -26,7 +26,12 @@ export default {
       title: 'Preparation',
       type: 'array',
       of: [{type: 'string'}]
-    }
+    },
+    {
+      name: 'related',
+      title: 'Related Content',
+      type: 'relatedContent',
+    },
   ],
   preview: {
     select: {
