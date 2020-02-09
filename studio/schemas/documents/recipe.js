@@ -1,9 +1,11 @@
 import {format} from 'date-fns'
+import MdShoppingCart from 'react-icons/lib/md/shopping-cart'
 
 export default {
   name: 'recipe',
   title: 'Oppskrift',
   type: 'document',
+  icon: MdShoppingCart,
   fields: [
     {
       name: 'title',

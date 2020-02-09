@@ -1,7 +1,10 @@
+import MdGroup from 'react-icons/lib/md/group'
+
 export default {
   name: 'quiz',
   title: 'Personlighetstest',
   type: 'document',
+  icon: MdGroup,
   fields: [
     {
       name: 'title',

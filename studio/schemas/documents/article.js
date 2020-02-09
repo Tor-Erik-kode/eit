@@ -1,9 +1,11 @@
 import {format} from 'date-fns'
+import Mdbook from 'react-icons/lib/md/book'
 
 export default {
   name: 'article',
   title: 'Artikkel',
   type: 'document',
+  icon: Mdbook,
   fields: [
     {
       name: 'title',
