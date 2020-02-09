@@ -4,14 +4,14 @@ export default {
   type: 'object',
   fields: [
     {
-      name: 'name',
-      title: 'Name',
+      name: 'id',
+      title: 'Id',
       type: 'string',
       validation: Rule => Rule.required(),
     },
     {
-      name: 'id',
-      title: 'Id',
+      name: 'name',
+      title: 'Name',
       type: 'string',
       validation: Rule => Rule.required(),
     },
