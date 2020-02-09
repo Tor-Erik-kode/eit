@@ -4,14 +4,6 @@ export default {
   type: 'object',
   fields: [
     {
-      title: 'Name',
-      name: 'name',
-      type: 'string',
-      options: {
-        isHighlighted: true
-      }
-    },
-    {
       title: 'Amount',
       name: 'amount',
       type: 'number'
@@ -20,7 +12,15 @@ export default {
       title: 'Unit',
       name: 'unit',
       type: 'string'
-    }
+    },
+    {
+      title: 'Name',
+      name: 'name',
+      type: 'string',
+      options: {
+        isHighlighted: true
+      }
+    },
   ],
   preview: {
     select: {
@@ -29,7 +29,7 @@ export default {
       unit: 'unit'
     },
     prepare(selection) {
-      const {name, amount, unit} = selection
+      const { name, amount, unit } = selection
       const formatted = `${amount} ${unit} ${name}`
       return {
         title: formatted,
