@@ -8,6 +8,7 @@ import schemaTypes from 'all:part:@sanity/base/schema-type'
 import article from './documents/article'
 import siteSettings from './documents/siteSettings'
 import recipe from './documents/recipe'
+import personalityQuiz from './documents/personalityQuiz'
 
 // Object types
 import bioPortableText from './objects/bioPortableText'
@@ -15,6 +16,9 @@ import figure from './objects/figure'
 import articlePortableText from './objects/articlePortableText'
 import simplePortableText from './objects/simplePortableText'
 import ingredient from './objects/ingredient'
+import quizPersonalityQuestion from './objects/quizPersonalityQuestion'
+import quizPersonalityType from './objects/quizPersonalityType'
+import quizPersonalityAnswer from './objects/quizPersonalityAnswer'
 
 // Then we give our schema to the builder and provide the result to Sanity
 export default createSchema({
@@ -30,10 +34,14 @@ export default createSchema({
     articlePortableText,
     simplePortableText,
     ingredient,
+    quizPersonalityQuestion,
+    quizPersonalityType,
+    quizPersonalityAnswer,
     // The following are document types which will appear
     // in the studio.
     article,
     siteSettings,
     recipe,
+    personalityQuiz,
   ])
 })
