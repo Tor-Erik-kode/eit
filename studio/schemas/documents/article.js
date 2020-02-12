@@ -38,11 +38,6 @@ export default {
       title: 'Body',
       type: 'articlePortableText'
     },
-    {
-      name: 'related',
-      title: 'Related Content',
-      type: 'relatedContent',
-    },
   ],
   preview: {
     select: {

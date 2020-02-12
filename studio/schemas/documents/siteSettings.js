@@ -15,17 +15,23 @@ export default {
       title: 'Title'
     },
     {
+      name: 'toc',
+      title: 'Innholdsfortegnelse',
+      type: 'array',
+      of: [{ type: 'contentTypes' }]
+    },
+    {
       name: 'description',
       type: 'text',
       title: 'Description',
-      description: 'Describe your portfolio for search engines and social media.'
+      description: 'For search engines and social media.'
     },
     {
       name: 'keywords',
       type: 'array',
       title: 'Keywords',
-      description: 'Add keywords that describes your portfolio.',
-      of: [{type: 'string'}],
+      description: 'Add keywords that describes your site.',
+      of: [{ type: 'string' }],
       options: {
         layout: 'tags'
       }

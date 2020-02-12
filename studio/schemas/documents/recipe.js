@@ -29,11 +29,6 @@ export default {
       type: 'array',
       of: [{type: 'string'}]
     },
-    {
-      name: 'related',
-      title: 'Related Content',
-      type: 'relatedContent',
-    },
   ],
   preview: {
     select: {
