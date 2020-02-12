@@ -13,6 +13,16 @@ export default {
       type: 'string'
     },
     {
+      name: 'slug',
+      title: 'Slug',
+      type: 'slug',
+      description: 'Some frontend will require a slug to be set to be able to show the article',
+      options: {
+        source: 'title',
+        maxLength: 96
+      }
+    },
+    {
       name: 'servings',
       title: 'Servings',
       type: 'number'

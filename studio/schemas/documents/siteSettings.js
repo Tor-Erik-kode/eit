@@ -30,7 +30,15 @@ export default {
       name: 'toc',
       title: 'Innholdsfortegnelse',
       type: 'array',
-      of: [{ type: 'contentTypes' }]
+      of: [{
+        type: 'reference',
+        to: [
+          { type: 'article' },
+          { type: 'recipe' },
+          { type: 'quiz' }
+        ]
+      }],
+      validation: Rule => Rule.unique()
     },
     {
       name: 'description',
