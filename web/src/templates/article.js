@@ -10,7 +10,6 @@ export const query = graphql`
   query ArticleTemplateQuery($id: String!) {
     articles: sanityArticle(id: {eq: $id}) {
       id
-      publishedAt
       mainImage {
         crop {
           _key

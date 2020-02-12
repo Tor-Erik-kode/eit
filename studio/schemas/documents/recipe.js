@@ -23,9 +23,25 @@ export default {
       }
     },
     {
+      name: 'mainImage',
+      title: 'Main image',
+      type: 'figure'
+    },
+    {
+      name: 'description',
+      title: 'Beskrivelse',
+      description: 'Motiverende tekst som frister!',
+      type: 'articlePortableText'
+    },
+    {
       name: 'servings',
       title: 'Servings',
       type: 'number'
+    },
+    {
+      name: 'time',
+      title: 'Tid',
+      type: 'string'
     },
     {
       name: 'ingredients',

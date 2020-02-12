@@ -19,7 +19,7 @@ export const query = graphql`
       keywords
     }
     articles: allSanityArticle(
-      filter: {slug: {current: {ne: null}}, publishedAt: {ne: null}}
+      filter: {slug: {current: {ne: null}}}
     ) {
       edges {
         node {

@@ -5,32 +5,48 @@ import BlockContent from './block-content'
 import Container from './container'
 
 function Recipe(props) {
-  const { title, ingredients, servings, preparation } = props
+  const { title, ingredients, servings, preparation, _rawDescription, mainImage } = props
   return (
     <article>
-      <header>{title}</header>
+      <header>
+        <h1>{title}</h1>
+
+        {props.mainImage && mainImage.asset && (
+          <div className={styles.mainImage}>
+            <img
+              src={imageUrlFor(buildImageObj(mainImage))
+                .width(1200)
+                .height(Math.floor((9 / 16) * 1200))
+                .fit('crop')
+                .url()}
+              alt={mainImage.alt}
+            />
+          </div>
+        )}
+
+      </header>
       <section>
         <header>Ingredienser</header>
         {servings} Porsjoner
         <ul>
-        {
-          ingredients.map(ingredient => {
-            const {amount, unit, name, _key} = ingredient
-          return <li key={_key}>{`${amount} ${unit} ${name}`}</li>
-          })
-        }
+          {
+            ingredients.map(ingredient => {
+              const { amount, unit, name, _key } = ingredient
+              return <li key={_key}>{`${amount} ${unit} ${name}`}</li>
+            })
+          }
         </ul>
       </section>
       <section>
         <header>Slik gjør du</header>
         <ol>
-        {
-          preparation.map((step, index) => (
-            <li key={index}>
-              {step}
-            </li>
-          ))
-        }
+          {
+            preparation.map((step, index) => (
+              <li key={index}>
+                {step}
+              </li>
+            ))
+          }
         </ol>
       </section>
     </article>
