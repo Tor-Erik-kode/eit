@@ -15,6 +15,18 @@ export default {
       title: 'Title'
     },
     {
+      name: 'cover',
+      title: 'Cover',
+      description: 'This is the main picture on the front page',
+      type: 'image'
+    },
+    {
+      name: 'coverText',
+      title: 'Cover Text',
+      description: 'This text appears on the front page',
+      type: 'simplePortableText'
+    },
+    {
       name: 'toc',
       title: 'Innholdsfortegnelse',
       type: 'array',
@@ -23,7 +35,7 @@ export default {
     {
       name: 'description',
       type: 'text',
-      title: 'Description',
+      title: 'SEO description',
       description: 'For search engines and social media.'
     },
     {
