@@ -11,13 +11,6 @@ export const query = graphql`
     articles: sanityArticle(id: {eq: $id}) {
       id
       publishedAt
-      relatedArticles {
-        title
-        _id
-        slug {
-          current
-        }
-      }
       mainImage {
         crop {
           _key

@@ -9,7 +9,7 @@ import Container from './container'
 import styles from './article.module.css'
 
 function Article(props) {
-  const { _rawBody, title, mainImage, relatedArticles } = props
+  const { _rawBody, title, mainImage } = props
   return (
     <article className={styles.root}>
       {props.mainImage && mainImage.asset && (
@@ -31,22 +31,6 @@ function Article(props) {
             {_rawBody && <BlockContent blocks={_rawBody || []} />}
           </div>
           <aside className={styles.metaContent}>
-            {relatedArticles && relatedArticles.length > 0 && (
-              <div className={styles.relatedArticles}>
-                <h3 className={styles.relatedArticlesHeadline}>Related articles</h3>
-                <ul>
-                  {relatedArticles.map(article => (
-                    <li key={`related_${article._id}`}>
-                      {article.slug ? (
-                        <Link to={`/artikkel/${article.slug.current}`}>{article.title}</Link>
-                      ) : (
-                          <span>{article.title}</span>
-                        )}
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            )}
           </aside>
         </div>
       </Container>

@@ -50,10 +50,6 @@
     display: block;
     fill: inherit;
   }
-
-  @media (--media-min-small) {
-    display: none;
-  }
 }
 
 .nav {
@@ -91,20 +87,6 @@
 
     @nest & ul li a {
       padding: 0.5rem 1.5rem;
-    }
-  }
-
-  @media (--media-min-small) {
-    display: block;
-
-    @nest & ul {
-      list-style: none;
-      display: flex;
-      justify-content: flex-end;
-    }
-
-    @nest & ul li a {
-      padding: 0.5rem;
     }
   }
 }
