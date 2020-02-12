@@ -1,4 +1,3 @@
-import {format} from 'date-fns'
 import Mdbook from 'react-icons/lib/md/book'
 
 export default {
@@ -24,12 +23,6 @@ export default {
       }
     },
     {
-      name: 'publishedAt',
-      title: 'Published at',
-      description: 'You can use this field to schedule articles where you show them',
-      type: 'datetime'
-    },
-    {
       name: 'mainImage',
       title: 'Main image',
       type: 'figure'
@@ -43,17 +36,13 @@ export default {
   preview: {
     select: {
       title: 'title',
-      publishedAt: 'publishedAt',
       slug: 'slug',
       media: 'mainImage'
     },
-    prepare({title = 'No title', publishedAt, slug = {}, media}) {
-      const dateSegment = format(publishedAt, 'YYYY/MM')
-      const path = `/${dateSegment}/${slug.current}/`
+    prepare({title = 'No title', slug = {}, media}) {
       return {
         title,
         media,
-        subtitle: publishedAt ? path : 'Missing publishing date'
       }
     }
   }

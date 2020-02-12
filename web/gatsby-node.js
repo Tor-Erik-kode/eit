@@ -10,11 +10,10 @@ async function createArticlePages (graphql, actions, reporter) {
   const {createPage} = actions
   const result = await graphql(`
     {
-      allSanityArticle(filter: {slug: {current: {ne: null}}, publishedAt: {ne: null}}) {
+      allSanityArticle(filter: {slug: {current: {ne: null}}}) {
         edges {
           node {
             id
-            publishedAt
             slug {
               current
             }
@@ -29,7 +28,6 @@ async function createArticlePages (graphql, actions, reporter) {
   const articleEdges = (result.data.allSanityArticle || {}).edges || []
 
   articleEdges
-    .filter(edge => !isFuture(edge.node.publishedAt))
     .forEach(edge => {
       const id = edge.node.id
       const slug = edge.node.slug.current

@@ -24,7 +24,7 @@ export default {
       }
     },
     {
-      name: 'type',
+      name: 'personalityTypes',
       title: 'Personality types',
       description: "Personality types have an identifying id, a name, and a description.",
       type: 'array',
@@ -34,7 +34,7 @@ export default {
       validation: Rule => Rule.required().min(2),
     },
     {
-      name: 'question',
+      name: 'questions',
       title: 'Question',
       description: "A question has a set of answers that match to a personality id.",
       type: 'array',

@@ -4,7 +4,7 @@ export default {
   type: 'object',
   fields: [
     {
-      name: 'id',
+      name: 'personalityId',
       title: 'Corresponding personality ID',
       type: 'string',
       validation: Rule => Rule.required(),
@@ -19,7 +19,7 @@ export default {
   preview: {
     select: {
       name: 'answer',
-      id: 'id',
+      id: 'personalityId',
     },
     prepare(selection) {
       const { name, id } = selection

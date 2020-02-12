@@ -4,14 +4,21 @@ import Container from '../components/container'
 import GraphQLErrorList from '../components/graphql-error-list'
 import SEO from '../components/seo'
 import Layout from '../containers/layout'
+import Recipe from '../components/recipe'
 
 export const query = graphql`
   query RecipeTemplateQuery($id: String!) {
     recipes: sanityRecipe(id: {eq: $id}) {
-      title
-      slug {
-        current
+      _id
+      ingredients {
+        amount
+        name
+        unit
+        _key
       }
+      preparation
+      servings
+      title
     }
   }
 `
@@ -29,7 +36,7 @@ const RecipeTemplate = props => {
           <GraphQLErrorList errors={errors} />
         </Container>
       )}
-      {console.log(recipe)}
+      {recipe && <Recipe {...recipe} />}
     </Layout>
   )
 }

@@ -1,4 +1,3 @@
-import {format} from 'date-fns'
 import MdShoppingCart from 'react-icons/lib/md/shopping-cart'
 
 export default {
@@ -44,17 +43,13 @@ export default {
   preview: {
     select: {
       title: 'title',
-      publishedAt: 'publishedAt',
       slug: 'slug',
       media: 'mainImage'
     },
-    prepare({title = 'No title', publishedAt, slug = {}, media}) {
-      const dateSegment = format(publishedAt, 'YYYY/MM')
-      const path = `/${dateSegment}/${slug.current}/`
+    prepare({title = 'No title', slug = {}, media}) {
       return {
         title,
         media,
-        subtitle: publishedAt ? path : 'Missing publishing date'
       }
     }
   }

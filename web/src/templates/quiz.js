@@ -4,22 +4,38 @@ import Container from '../components/container'
 import GraphQLErrorList from '../components/graphql-error-list'
 import SEO from '../components/seo'
 import Layout from '../containers/layout'
+import Quiz from '../components/quiz'
 
 export const query = graphql`
   query QuizTemplateQuery($id: String!) {
-    quizs: sanityQuiz(id: {eq: $id}) {
+    quiz: sanityQuiz(id: {eq: $id}) {
       id
-      title
-      slug {
-        current
+    _type
+    questions {
+      answers {
+        answer
+        personalityId
+        _key
+        _type
       }
+      question
+      _key
+      _type
+    }
+    title
+    personalityTypes {
+      description
+      name
+      _key
+      personalityId
+    }
     }
   }
 `
 
 const QuizTemplate = props => {
   const { data, errors } = props
-  const quiz = data && data.quizs
+  const quiz = data && data.quiz
   return (
     <Layout>
       {errors && <SEO title='GraphQL Error' />}
@@ -30,7 +46,7 @@ const QuizTemplate = props => {
           <GraphQLErrorList errors={errors} />
         </Container>
       )}
-      {console.log(quiz)}
+      {quiz && <Quiz {...quiz} />}
     </Layout>
   )
 }
