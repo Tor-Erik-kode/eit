@@ -6,12 +6,8 @@ import { cn } from '../lib/helpers'
 import styles from './header.module.css'
 
 const makeLinks = (content) => {
-  console.log(content)
   const { __typename: typename, title, slug, _id } = content
-
   const type = typename.slice(6).toLowerCase()
-  console.log(title)
-
   return <li key={_id}><Link to={`/${type}/${slug.current}`}>{title}</Link></li>
 }
 
