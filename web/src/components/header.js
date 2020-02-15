@@ -1,9 +1,15 @@
 import { Link, StaticQuery } from 'gatsby'
 import React from 'react'
-import Icon from './icon'
 import styled from 'styled-components'
 
-export const StyledBurger = styled.button`
+const StyledHeader = styled.header`
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%; 
+`
+
+const StyledBurger = styled.button`
   position: absolute;
   top: 5%;
   right: 2rem;
@@ -24,7 +30,6 @@ export const StyledBurger = styled.button`
     background: black;
     width: 2rem;
     height: 0.25rem;
-    border-radius: 10px;
     transition: all 0.3s linear;
     position: relative;
     transform-origin: 1px;
@@ -41,7 +46,7 @@ export const StyledBurger = styled.button`
   }
 `;
 
-export const StyledMenu = styled.nav`
+const StyledMenu = styled.nav`
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -53,8 +58,6 @@ export const StyledMenu = styled.nav`
   right: 0;
   transition: transform 0.3s ease-in-out;
   background: white;
-  height: 100%;
-
   ul {
     list-style-type: none;
   }
@@ -75,7 +78,7 @@ const Header = ({ onHideNav, onShowNav, showNav, siteTitle, className }) => (
     }
     `}
     render={data => (
-      <header className={className}>
+      <StyledHeader className={className}>
         <div >
           <Link to='/'>{siteTitle}</Link>
         </div>
@@ -91,7 +94,7 @@ const Header = ({ onHideNav, onShowNav, showNav, siteTitle, className }) => (
             {data.sanitySiteSettings.toc.map(content => makeLinks(content))}
           </ul>
         </StyledMenu>
-      </header>
+      </StyledHeader>
     )}
   />
 )
