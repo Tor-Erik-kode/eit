@@ -1,11 +1,17 @@
 import React from 'react'
 import Header from './header'
-import styled from 'styled-components'
+import { createGlobalStyle, styled } from 'styled-components'
 
-const Layout = styled.div`
-  display: flex;
-  min-height: 100vh;
-  flex-direction: column;
+const GlobalStyle = createGlobalStyle`
+  body {
+    margin: 0px;
+  }
+
+  .layout {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+  }
 
   .header {
   }
@@ -16,11 +22,14 @@ const Layout = styled.div`
 `
 
 export default ({ children, onHideNav, onShowNav, showNav, siteTitle }) => (
-  <Layout>
-    <Header className="header" siteTitle={siteTitle} onHideNav={onHideNav} onShowNav={onShowNav} showNav={showNav} />
-    <div className="content">{children}</div>
-    <footer >
-      © {new Date().getFullYear()} Gruppe B - TBT4850 Eksperter i team.
+  <>
+    <GlobalStyle/>
+    <div className="layout">
+      <Header className="header" siteTitle={siteTitle} onHideNav={onHideNav} onShowNav={onShowNav} showNav={showNav} />
+      <div className="content">{children}</div>
+      <footer >
+        © {new Date().getFullYear()} Gruppe B - TBT4850 Eksperter i team.
     </footer>
-  </Layout>
+    </div>
+  </>
 )

@@ -1,6 +1,8 @@
-import { Link, StaticQuery } from 'gatsby'
+import { StaticQuery, Link } from 'gatsby'
 import React from 'react'
 import styled from 'styled-components'
+
+import TocList from './tocList'
 
 const StyledHeader = styled.header`
   position: fixed;
@@ -63,11 +65,6 @@ const StyledMenu = styled.nav`
   }
 `;
 
-const makeLinks = (content) => {
-  const { _type, title, slug, _id } = content
-  return <li key={_id}><Link to={`/${_type}/${slug.current}`}>{title}</Link></li>
-}
-
 const Header = ({ onHideNav, onShowNav, showNav, siteTitle, className }) => (
   <StaticQuery
     query={graphql`
@@ -90,9 +87,7 @@ const Header = ({ onHideNav, onShowNav, showNav, siteTitle, className }) => (
         </StyledBurger>
 
         <StyledMenu open={showNav}>
-          <ul>
-            {data.sanitySiteSettings.toc.map(content => makeLinks(content))}
-          </ul>
+          <TocList />
         </StyledMenu>
       </StyledHeader>
     )}

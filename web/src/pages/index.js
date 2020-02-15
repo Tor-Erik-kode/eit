@@ -5,12 +5,14 @@ import {
   filterOutDocsWithoutSlugs,
   filterOutDocsPublishedInTheFuture
 } from '../lib/helpers'
+import styled from 'styled-components'
 import GraphQLErrorList from '../components/graphql-error-list'
 import ArticlePreviewGrid from '../components/article-preview-grid'
 import Cover from '../components/cover'
 import SEO from '../components/seo'
+import TocList from '../components/tocList'
 import Layout from '../containers/layout'
-import styled from 'styled-components'
+
 
 export const query = graphql`
   query IndexPageQuery {
@@ -101,6 +103,9 @@ const IndexPage = props => {
         <SEO title={site.title} description={site.description} keywords={site.keywords} />
       <section>
         <Cover />
+      </section>
+      <section>
+        <TocList />
       </section>
       <section>
         {articleNodes && (
