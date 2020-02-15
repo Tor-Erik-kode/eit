@@ -1,8 +1,6 @@
 import React from 'react'
 import { buildImageObj } from '../lib/helpers'
 import { imageUrlFor } from '../lib/image-url'
-import BlockContent from './block-content'
-import Container from './container'
 
 function Recipe(props) {
   const { title, ingredients, servings, preparation, _rawDescription, mainImage } = props
@@ -12,7 +10,7 @@ function Recipe(props) {
         <h1>{title}</h1>
 
         {props.mainImage && mainImage.asset && (
-          <div className={styles.mainImage}>
+          <div>
             <img
               src={imageUrlFor(buildImageObj(mainImage))
                 .width(1200)

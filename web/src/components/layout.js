@@ -1,21 +1,26 @@
 import React from 'react'
 import Header from './header'
+import styled from 'styled-components'
 
-import '../styles/layout.css'
-import styles from './layout.module.css'
+const Layout = styled.div`
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
 
-const Layout = ({children, onHideNav, onShowNav, showNav, siteTitle}) => (
-  <>
-    <Header siteTitle={siteTitle} onHideNav={onHideNav} onShowNav={onShowNav} showNav={showNav} />
-    <div className={styles.content}>{children}</div>
-    <footer className={styles.footer}>
-      <div className={styles.footerWrapper}>
-        <div className={styles.siteInfo}>
-          © {new Date().getFullYear()} Gruppe B - TBT4850 Eksperter i team.
-        </div>
-      </div>
+  .header {
+  }
+
+  .content {
+    flex: 1;
+  }
+`
+
+export default ({ children, onHideNav, onShowNav, showNav, siteTitle }) => (
+  <Layout>
+    <Header className="header" siteTitle={siteTitle} onHideNav={onHideNav} onShowNav={onShowNav} showNav={showNav} />
+    <div className="content">{children}</div>
+    <footer >
+      © {new Date().getFullYear()} Gruppe B - TBT4850 Eksperter i team.
     </footer>
-  </>
+  </Layout>
 )
-
-export default Layout
