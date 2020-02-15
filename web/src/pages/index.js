@@ -87,7 +87,6 @@ const IndexPage = props => {
         <h1 hidden>Welcome to {site.title}</h1>
         {articleNodes && (
           <ArticlePreviewGrid
-            title='Home'
             nodes={articleNodes}
           />
         )}

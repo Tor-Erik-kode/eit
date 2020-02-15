@@ -7,7 +7,6 @@ import styles from './article-preview-grid.module.css'
 function ArticlePreviewGrid (props) {
   return (
     <div className={styles.root}>
-      {props.title && <h2 className={styles.headline}>{props.title}</h2>}
       <ul className={styles.grid}>
         {props.nodes &&
           props.nodes.map(node => (
