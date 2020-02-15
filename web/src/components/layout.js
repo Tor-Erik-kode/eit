@@ -1,18 +1,23 @@
 import React from 'react'
 import Header from './header'
+import styled from 'styled-components'
 
-const Layout = ({children, onHideNav, onShowNav, showNav, siteTitle}) => (
-  <>
+const Layout = styled.div`
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+
+  .content {
+    flex: 1;
+  }
+`
+
+export default ({ children, onHideNav, onShowNav, showNav, siteTitle }) => (
+  <Layout>
     <Header siteTitle={siteTitle} onHideNav={onHideNav} onShowNav={onShowNav} showNav={showNav} />
-    <div>{children}</div>
+    <div className="content">{children}</div>
     <footer >
-      <div >
-        <div >
-          © {new Date().getFullYear()} Gruppe B - TBT4850 Eksperter i team.
-        </div>
-      </div>
+      © {new Date().getFullYear()} Gruppe B - TBT4850 Eksperter i team.
     </footer>
-  </>
+  </Layout>
 )
-
-export default Layout
