@@ -7,6 +7,9 @@ const Layout = styled.div`
   min-height: 100vh;
   flex-direction: column;
 
+  .header {
+  }
+
   .content {
     flex: 1;
   }
@@ -14,7 +17,7 @@ const Layout = styled.div`
 
 export default ({ children, onHideNav, onShowNav, showNav, siteTitle }) => (
   <Layout>
-    <Header siteTitle={siteTitle} onHideNav={onHideNav} onShowNav={onShowNav} showNav={showNav} />
+    <Header className="header" siteTitle={siteTitle} onHideNav={onHideNav} onShowNav={onShowNav} showNav={showNav} />
     <div className="content">{children}</div>
     <footer >
       © {new Date().getFullYear()} Gruppe B - TBT4850 Eksperter i team.
