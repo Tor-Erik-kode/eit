@@ -2,13 +2,11 @@ import { Link, StaticQuery } from 'gatsby'
 import React from 'react'
 import Icon from './icon'
 import { cn } from '../lib/helpers'
-
 import styles from './header.module.css'
 
 const makeLinks = (content) => {
-  const { __typename: typename, title, slug, _id } = content
-  const type = typename.slice(6).toLowerCase()
-  return <li key={_id}><Link to={`/${type}/${slug.current}`}>{title}</Link></li>
+  const { _type, title, slug, _id } = content
+  return <li key={_id}><Link to={`/${_type}/${slug.current}`}>{title}</Link></li>
 }
 
 const Header = ({ onHideNav, onShowNav, showNav, siteTitle }) => (
@@ -16,32 +14,9 @@ const Header = ({ onHideNav, onShowNav, showNav, siteTitle }) => (
     query={graphql`
     query NavQuery {
       sanitySiteSettings(_id: {eq: "siteSettings"}) {
-        toc {
-          ... on SanityArticle {
-            title
-            slug {
-              current
-            }
-            _id
-          }
-          ... on SanityQuiz {
-            title
-            slug {
-              current
-            }
-            _id
-          }
-          ... on SanityRecipe {
-            title
-            slug {
-              current
-            }
-            _id
-          }
-        }
+        ...ContentQuery
       }
     }
-    
     `}
     render={data => (
       <div className={styles.root}>
