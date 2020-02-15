@@ -5,12 +5,12 @@ import {
   filterOutDocsWithoutSlugs,
   filterOutDocsPublishedInTheFuture
 } from '../lib/helpers'
-import Container from '../components/container'
 import GraphQLErrorList from '../components/graphql-error-list'
 import ArticlePreviewGrid from '../components/article-preview-grid'
 import Cover from '../components/cover'
 import SEO from '../components/seo'
 import Layout from '../containers/layout'
+import styled from 'styled-components'
 
 export const query = graphql`
   query IndexPageQuery {
@@ -57,6 +57,20 @@ export const query = graphql`
   }
 `
 
+const Index = styled.article`
+  height: 100vh;
+  overflow-y: scroll;
+  scroll-snap-points-y: repeat(100vh);
+  scroll-snap-destination: 0 0;
+  scroll-snap-type: y mandatory;
+  scroll-snap-type: mandatory;
+
+  section {
+    height: 100vh;
+    scroll-snap-align: start;
+  }
+`
+
 const IndexPage = props => {
   const { data, errors } = props
 
@@ -83,16 +97,19 @@ const IndexPage = props => {
 
   return (
     <Layout>
-      <SEO title={site.title} description={site.description} keywords={site.keywords} />
-      <Cover/>
-      <Container>
-        <h1 hidden>Welcome to {site.title}</h1>
+      <Index>
+        <SEO title={site.title} description={site.description} keywords={site.keywords} />
+      <section>
+        <Cover />
+      </section>
+      <section>
         {articleNodes && (
           <ArticlePreviewGrid
             nodes={articleNodes}
           />
         )}
-      </Container>
+      </section>
+      </Index>
     </Layout>
   )
 }
