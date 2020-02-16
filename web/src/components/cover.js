@@ -3,6 +3,16 @@ import { buildImageObj } from '../lib/helpers'
 import { imageUrlFor } from '../lib/image-url'
 import BlockContent from './block-content'
 import { StaticQuery, graphql } from "gatsby"
+import styled from 'styled-components'
+
+const StyledCover = styled.div`
+  img {
+    height: 100vh;
+    vertical-align: top;
+    object-fit: cover;
+  }
+  
+`
 
 export default () => (
   <StaticQuery
@@ -35,10 +45,9 @@ export default () => (
       }
     `}
     render={data => (
-      <div>
+      <StyledCover>
         {
           data.site.cover && data.site.cover.asset && (
-            <div>
               <img
                 src={imageUrlFor(buildImageObj(data.site.cover))
                   .width(1200)
@@ -46,11 +55,10 @@ export default () => (
                   .fit('crop')
                   .url()}
               />
-            </div>
           )
         }
         {data.site._rawCoverText && <BlockContent blocks={data.site._rawCoverText || []} />}
-      </div >
-    )}
+      </StyledCover>
+      )}
   />
 )
