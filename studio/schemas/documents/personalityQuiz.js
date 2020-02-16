@@ -13,7 +13,18 @@ export default {
       validation: Rule => Rule.required(),
     },
     {
-      name: 'type',
+      name: 'slug',
+      title: 'Slug',
+      type: 'slug',
+      description: 'Some frontend will require a slug to be set to be able to show the article',
+      validation: Rule => Rule.required(),
+      options: {
+        source: 'title',
+        maxLength: 96
+      }
+    },
+    {
+      name: 'personalityTypes',
       title: 'Personality types',
       description: "Personality types have an identifying id, a name, and a description.",
       type: 'array',
@@ -23,7 +34,7 @@ export default {
       validation: Rule => Rule.required().min(2),
     },
     {
-      name: 'question',
+      name: 'questions',
       title: 'Question',
       description: "A question has a set of answers that match to a personality id.",
       type: 'array',

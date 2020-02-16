@@ -19,7 +19,6 @@ import ingredient from './objects/ingredient'
 import quizPersonalityQuestion from './objects/quizPersonalityQuestion'
 import quizPersonalityType from './objects/quizPersonalityType'
 import quizPersonalityAnswer from './objects/quizPersonalityAnswer'
-import contentTypes from './objects/contentTypes'
 
 // Then we give our schema to the builder and provide the result to Sanity
 export default createSchema({
@@ -34,7 +33,6 @@ export default createSchema({
     figure,
     articlePortableText,
     simplePortableText,
-    contentTypes,
     ingredient,
     quizPersonalityQuestion,
     quizPersonalityType,

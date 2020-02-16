@@ -15,15 +15,35 @@ export default {
       title: 'Title'
     },
     {
+      name: 'cover',
+      title: 'Cover',
+      description: 'This is the main picture on the front page',
+      type: 'image'
+    },
+    {
+      name: 'coverText',
+      title: 'Cover Text',
+      description: 'This text appears on the front page',
+      type: 'simplePortableText'
+    },
+    {
       name: 'toc',
       title: 'Innholdsfortegnelse',
       type: 'array',
-      of: [{ type: 'contentTypes' }]
+      of: [{
+        type: 'reference',
+        to: [
+          { type: 'article' },
+          { type: 'recipe' },
+          { type: 'quiz' }
+        ]
+      }],
+      validation: Rule => Rule.unique()
     },
     {
       name: 'description',
       type: 'text',
-      title: 'Description',
+      title: 'SEO description',
       description: 'For search engines and social media.'
     },
     {

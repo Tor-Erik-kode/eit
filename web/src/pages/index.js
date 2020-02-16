@@ -1,15 +1,18 @@
 import React from 'react'
-import {graphql} from 'gatsby'
+import { graphql } from 'gatsby'
 import {
   mapEdgesToNodes,
   filterOutDocsWithoutSlugs,
   filterOutDocsPublishedInTheFuture
 } from '../lib/helpers'
-import Container from '../components/container'
+import styled from 'styled-components'
 import GraphQLErrorList from '../components/graphql-error-list'
 import ArticlePreviewGrid from '../components/article-preview-grid'
+import Cover from '../components/cover'
 import SEO from '../components/seo'
+import TocList from '../components/tocList'
 import Layout from '../containers/layout'
+
 
 export const query = graphql`
   query IndexPageQuery {
@@ -19,7 +22,7 @@ export const query = graphql`
       keywords
     }
     articles: allSanityArticle(
-      filter: {slug: {current: {ne: null}}, publishedAt: {ne: null}}
+      filter: {slug: {current: {ne: null}}}
     ) {
       edges {
         node {
@@ -56,8 +59,22 @@ export const query = graphql`
   }
 `
 
+const Index = styled.article`
+  height: 100vh;
+  overflow-y: scroll;
+  scroll-snap-points-y: repeat(100vh);
+  scroll-snap-destination: 0 0;
+  scroll-snap-type: y mandatory;
+  scroll-snap-type: mandatory;
+
+  section {
+    height: 100vh;
+    scroll-snap-align: start;
+  }
+`
+
 const IndexPage = props => {
-  const {data, errors} = props
+  const { data, errors } = props
 
   if (errors) {
     return (
@@ -82,16 +99,22 @@ const IndexPage = props => {
 
   return (
     <Layout>
-      <SEO title={site.title} description={site.description} keywords={site.keywords} />
-      <Container>
-        <h1 hidden>Welcome to {site.title}</h1>
+      <Index>
+        <SEO title={site.title} description={site.description} keywords={site.keywords} />
+      <section>
+        <Cover />
+      </section>
+      <section>
+        <TocList />
+      </section>
+      <section>
         {articleNodes && (
           <ArticlePreviewGrid
-            title='Home'
             nodes={articleNodes}
           />
         )}
-      </Container>
+      </section>
+      </Index>
     </Layout>
   )
 }

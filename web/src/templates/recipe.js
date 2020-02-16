@@ -2,14 +2,24 @@ import React from 'react'
 import { graphql } from 'gatsby'
 import Container from '../components/container'
 import GraphQLErrorList from '../components/graphql-error-list'
-import Article from '../components/article'
 import SEO from '../components/seo'
 import Layout from '../containers/layout'
+import Recipe from '../components/recipe'
 
 export const query = graphql`
-  query ArticleTemplateQuery($id: String!) {
-    articles: sanityArticle(id: {eq: $id}) {
-      id
+  query RecipeTemplateQuery($id: String!) {
+    recipes: sanityRecipe(id: {eq: $id}) {
+      _id
+      ingredients {
+        amount
+        name
+        unit
+        _key
+      }
+      preparation
+      servings
+      title
+      _rawDescription
       mainImage {
         crop {
           _key
@@ -32,31 +42,26 @@ export const query = graphql`
         }
         alt
       }
-      title
-      slug {
-        current
-      }
-      _rawBody
     }
   }
 `
 
-const ArticleTemplate = props => {
+const RecipeTemplate = props => {
   const { data, errors } = props
-  const article = data && data.articles
+  const recipe = data && data.recipes
   return (
     <Layout>
       {errors && <SEO title='GraphQL Error' />}
-      {article && <SEO title={article.title || 'Untitled'} />}
+      {recipe && <SEO title={recipe.title || 'Untitled'} />}
 
       {errors && (
         <Container>
           <GraphQLErrorList errors={errors} />
         </Container>
       )}
-      {article && <Article {...article} />}
+      {recipe && <Recipe {...recipe} />}
     </Layout>
   )
 }
 
-export default ArticleTemplate
+export default RecipeTemplate
