@@ -12,6 +12,15 @@ export default {
       type: 'string'
     },
     {
+      name: 'authors',
+      title: 'Authors',
+      type: 'array',
+      of: [{
+        type: 'reference',
+        to: { type: 'person' }
+      }],
+    },
+    {
       name: 'slug',
       title: 'Slug',
       type: 'slug',

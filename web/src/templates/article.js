@@ -30,11 +30,35 @@ export const query = graphql`
         asset {
           _id
         }
-        alt
       }
       title
       slug {
         current
+      }
+      authors {
+        image {
+          crop {
+            _key
+            _type
+            top
+            bottom
+            left
+            right
+          }
+          hotspot {
+            _key
+            _type
+            x
+            y
+            height
+            width
+          }
+          asset {
+            _id
+          }
+        }
+        name
+        _key
       }
       _rawBody
       sources

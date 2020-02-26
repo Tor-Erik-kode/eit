@@ -9,6 +9,7 @@ import article from './documents/article'
 import siteSettings from './documents/siteSettings'
 import recipe from './documents/recipe'
 import personalityQuiz from './documents/personalityQuiz'
+import person from './documents/person'
 
 // Object types
 import coverPortableText from './objects/coverPortableText'
@@ -41,6 +42,7 @@ export default createSchema({
     youtube,
     // The following are document types which will appear
     // in the studio.
+    person,
     article,
     siteSettings,
     recipe,
