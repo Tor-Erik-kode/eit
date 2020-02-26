@@ -32,6 +32,12 @@ export default {
       title: 'Body',
       type: 'articlePortableText'
     },
+    {
+      name: 'sources',
+      title: 'Sources',
+      type: 'array',
+      of: [{ type: 'string' }]
+    },
   ],
   preview: {
     select: {
@@ -39,7 +45,7 @@ export default {
       slug: 'slug',
       media: 'mainImage'
     },
-    prepare({title = 'No title', slug = {}, media}) {
+    prepare({ title = 'No title', slug = {}, media }) {
       return {
         title,
         media,

@@ -5,7 +5,7 @@ import BlockContent from './block-content'
 import Container from './container'
 
 function Article(props) {
-  const { _rawBody, title, mainImage } = props
+  const { _rawBody, title, mainImage, sources } = props
   return (
     <article>
       {props.mainImage && mainImage.asset && (
@@ -26,7 +26,14 @@ function Article(props) {
             <h1 >{title}</h1>
             {_rawBody && <BlockContent blocks={_rawBody || []} />}
           </div>
-          <aside >
+          <aside>
+            <ul>
+              {sources && sources.map((source, index) =>
+                <li key={index}>
+                  {source}
+                </li>
+              )}
+            </ul>
           </aside>
         </div>
       </Container>

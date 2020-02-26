@@ -11,7 +11,7 @@ import recipe from './documents/recipe'
 import personalityQuiz from './documents/personalityQuiz'
 
 // Object types
-import bioPortableText from './objects/bioPortableText'
+import coverPortableText from './objects/coverPortableText'
 import figure from './objects/figure'
 import articlePortableText from './objects/articlePortableText'
 import simplePortableText from './objects/simplePortableText'
@@ -19,6 +19,7 @@ import ingredient from './objects/ingredient'
 import quizPersonalityQuestion from './objects/quizPersonalityQuestion'
 import quizPersonalityType from './objects/quizPersonalityType'
 import quizPersonalityAnswer from './objects/quizPersonalityAnswer'
+import youtube from './objects/youtube'
 
 // Then we give our schema to the builder and provide the result to Sanity
 export default createSchema({
@@ -29,7 +30,7 @@ export default createSchema({
   types: schemaTypes.concat([
     // When added to this list, object types can be used as
     // { type: 'typename' } in other document schemas
-    bioPortableText,
+    coverPortableText,
     figure,
     articlePortableText,
     simplePortableText,
@@ -37,6 +38,7 @@ export default createSchema({
     quizPersonalityQuestion,
     quizPersonalityType,
     quizPersonalityAnswer,
+    youtube,
     // The following are document types which will appear
     // in the studio.
     article,

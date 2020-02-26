@@ -24,7 +24,7 @@ export default {
       name: 'coverText',
       title: 'Cover Text',
       description: 'This text appears on the front page',
-      type: 'simplePortableText'
+      type: 'coverPortableText'
     },
     {
       name: 'toc',

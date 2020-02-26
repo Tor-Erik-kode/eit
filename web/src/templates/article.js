@@ -37,6 +37,7 @@ export const query = graphql`
         current
       }
       _rawBody
+      sources
     }
   }
 `
