@@ -12,6 +12,15 @@ export default {
       type: 'string'
     },
     {
+      name: 'authors',
+      title: 'Authors',
+      type: 'array',
+      of: [{
+        type: 'reference',
+        to: { type: 'person' }
+      }],
+    },
+    {
       name: 'slug',
       title: 'Slug',
       type: 'slug',
@@ -28,9 +37,20 @@ export default {
       type: 'figure'
     },
     {
+      name: 'description',
+      title: 'Beskrivelse',
+      description: 'Oppsummering/abstrakt',
+      type: 'articlePortableText'
+    },
+    {
       name: 'body',
       title: 'Body',
       type: 'articlePortableText'
+    },
+    {
+      name: 'sources',
+      title: 'Sources',
+      type: 'sourcePortableText'
     },
   ],
   preview: {
@@ -39,7 +59,7 @@ export default {
       slug: 'slug',
       media: 'mainImage'
     },
-    prepare({title = 'No title', slug = {}, media}) {
+    prepare({ title = 'No title', slug = {}, media }) {
       return {
         title,
         media,

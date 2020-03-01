@@ -21,11 +21,13 @@ export const query = graphql`
       description
       keywords
     }
+
     articles: allSanityArticle(
       filter: {slug: {current: {ne: null}}}
     ) {
       edges {
         node {
+          _type
           id
           mainImage {
             crop {
@@ -47,7 +49,6 @@ export const query = graphql`
             asset {
               _id
             }
-            alt
           }
           title
           slug {
@@ -56,21 +57,84 @@ export const query = graphql`
         }
       }
     }
+
+    quizes: allSanityQuiz(
+      filter: {slug: {current: {ne: null}}}
+    ) {
+      edges {
+        node {
+          id
+          _type
+          mainImage {
+            crop {
+              _key
+              _type
+              top
+              bottom
+              left
+              right
+            }
+            hotspot {
+              _key
+              _type
+              x
+              y
+              height
+              width
+            }
+            asset {
+              _id
+            }
+          }
+          title
+          slug {
+            current
+          }
+        }
+      }
+    }
+
+    recipes: allSanityRecipe(
+      filter: {slug: {current: {ne: null}}}
+    ) {
+      edges {
+        node {
+          id
+          _type
+          mainImage {
+            crop {
+              _key
+              _type
+              top
+              bottom
+              left
+              right
+            }
+            hotspot {
+              _key
+              _type
+              x
+              y
+              height
+              width
+            }
+            asset {
+              _id
+            }
+          }
+          title
+          slug {
+            current
+          }
+        }
+      }
+    }
+
   }
 `
 
 const Index = styled.article`
-  height: 100vh;
-  overflow-y: scroll;
-  scroll-snap-points-y: repeat(100vh);
-  scroll-snap-destination: 0 0;
-  scroll-snap-type: y mandatory;
-  scroll-snap-type: mandatory;
 
-  section {
-    height: 100vh;
-    scroll-snap-align: start;
-  }
 `
 
 const IndexPage = props => {
@@ -85,11 +149,24 @@ const IndexPage = props => {
   }
 
   const site = (data || {}).site
-  const articleNodes = (data || {}).articles
+  const articles = (data || {}).articles
     ? mapEdgesToNodes(data.articles)
       .filter(filterOutDocsWithoutSlugs)
-      .filter(filterOutDocsPublishedInTheFuture)
     : []
+
+  const quizes = (data || {}).quizes
+    ? mapEdgesToNodes(data.quizes)
+      .filter(filterOutDocsWithoutSlugs)
+    : []
+
+  const recipes = (data || {}).recipes
+    ? mapEdgesToNodes(data.recipes)
+      .filter(filterOutDocsWithoutSlugs)
+    : []
+
+  const allContent = [...articles, ...recipes, ...quizes];
+
+  console.log(recipes)
 
   if (!site) {
     throw new Error(
@@ -101,19 +178,19 @@ const IndexPage = props => {
     <Layout>
       <Index>
         <SEO title={site.title} description={site.description} keywords={site.keywords} />
-      <section>
-        <Cover />
-      </section>
-      <section>
-        <TocList />
-      </section>
-      <section>
-        {articleNodes && (
-          <ArticlePreviewGrid
-            nodes={articleNodes}
-          />
-        )}
-      </section>
+        <section>
+          <Cover />
+        </section>
+        <section>
+          <TocList />
+        </section>
+        <section>
+          {allContent && (
+            <ArticlePreviewGrid
+              nodes={allContent}
+            />
+          )}
+        </section>
       </Index>
     </Layout>
   )

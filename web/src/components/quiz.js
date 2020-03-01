@@ -5,11 +5,14 @@ import BlockContent from './block-content'
 import Container from './container'
 
 function Quiz(props) {
-  const { title, questions, personalityType } = props
+  const { title, questions, personalityType, _rawDescription } = props
 
   return (
     <article>
-      <header>{title}</header>
+      <header>
+        {title}
+        {_rawDescription && <BlockContent blocks={_rawDescription || []} />
+        }</header>
       <section>
         {
           questions.map(q => {

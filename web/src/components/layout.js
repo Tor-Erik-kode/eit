@@ -1,12 +1,22 @@
 import React from 'react'
 import Header from './header'
 import { createGlobalStyle, styled } from 'styled-components'
+import Helmet from 'react-helmet'
 
 const GlobalStyle = createGlobalStyle`
   body {
-    margin: 0px;
-  }
+    padding: 0;
+    margin: 0;
+    font-family: 'Open Sans', sans-serif;
+    h1, h2, h3, h4, h5, h6 {
+      font-family: 'Caladea', serif;
+    }
 
+    figure {
+      margin:0;
+    }
+  }
+  
   .layout {
     display: flex;
     min-height: 100vh;
@@ -23,7 +33,10 @@ const GlobalStyle = createGlobalStyle`
 
 export default ({ children, onHideNav, onShowNav, showNav, siteTitle }) => (
   <>
-    <GlobalStyle/>
+    <Helmet>
+      <link href="https://fonts.googleapis.com/css?family=Caladea:700|Open+Sans&display=swap" rel="stylesheet" />
+    </Helmet>
+    <GlobalStyle />
     <div className="layout">
       <Header className="header" siteTitle={siteTitle} onHideNav={onHideNav} onShowNav={onShowNav} showNav={showNav} />
       <div className="content">{children}</div>

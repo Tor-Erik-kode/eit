@@ -13,6 +13,17 @@ export default {
       validation: Rule => Rule.required(),
     },
     {
+      name: 'mainImage',
+      title: 'Main image',
+      type: 'figure'
+    },
+    {
+      name: 'description',
+      title: 'Beskrivelse',
+      description: 'Beskrivelse av quiz',
+      type: 'articlePortableText'
+    },
+    {
       name: 'slug',
       title: 'Slug',
       type: 'slug',
