@@ -19,6 +19,7 @@ export const query = graphql`
       preparation
       servings
       title
+      
       _rawDescription
       mainImage {
         crop {

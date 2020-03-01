@@ -1,6 +1,7 @@
 import React from 'react'
 import { buildImageObj } from '../lib/helpers'
 import { imageUrlFor } from '../lib/image-url'
+import BlockContent from './block-content'
 
 function Recipe(props) {
   const { title, ingredients, servings, preparation, _rawDescription, mainImage } = props
