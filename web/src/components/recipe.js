@@ -8,6 +8,7 @@ function Recipe(props) {
     <article>
       <header>
         <h1>{title}</h1>
+        {_rawDescription && <BlockContent blocks={_rawDescription || []} />}
 
         {props.mainImage && mainImage.asset && (
           <div>

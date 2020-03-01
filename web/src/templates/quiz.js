@@ -23,6 +23,7 @@ export const query = graphql`
       _type
     }
     title
+    _rawDescription
     personalityTypes {
       description
       name

@@ -152,7 +152,7 @@ const StyledArticle = styled.div`
 `
 
 function Article(props) {
-  const { _rawBody, title, mainImage, authors, _rawSources, slug, toc } = props
+  const { _rawBody, title, mainImage, authors, _rawSources, slug, toc, _rawDescription } = props
 
   const slugName = slug.current
   const slugPos = toc.findIndex(e => e.includes(slugName))
@@ -184,6 +184,7 @@ function Article(props) {
           <div id="prev-link">{prevItem && prevLink}</div>
           <div id="content-head">
             <h1>{title}</h1>
+            {_rawDescription && <BlockContent blocks={_rawDescription || []} />}
             {authors && authors.length > 0 && <Person items={authors} title={authors.length > 1 ? 'Forfattere' : 'Forfatter'} />}
           </div>
           <div id="content-main">

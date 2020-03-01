@@ -64,6 +64,7 @@ export const query = graphql`
         name
         _key
       }
+      _rawDescription
       _rawBody
       _rawSources
     }
