@@ -55,6 +55,13 @@ const StyledArticle = styled.div`
       grid-column: 2;
     }
   }
+
+  #content-sources {
+    h1 {
+      font-family: 'Open Sans', sans-serif;
+      font-size: 1em;
+    }
+  }
   
 
   #content-main {
@@ -64,6 +71,27 @@ const StyledArticle = styled.div`
       grid-template-rows: auto;
       grid-column-gap: 5%;
       grid-template-columns: minmax(0, ${articleWidth}%) minmax(0, ${100 - articleWidth}%);
+      
+      
+      color: rgba(0, 0, 0, 0.8);
+
+      h1, h2, h3, h4, h5, h6 {
+        line-height: 1em;
+      }
+
+      h1 {
+        font-size: calc(1.8em + 1vw);
+      }
+      
+      h2 {
+        font-size: calc(1.3em + 1vw);
+        color:rgba(0, 0, 0, 0.8);
+      }
+
+      p, ul {
+        line-height: 1.6em;
+      }
+      
 
       .funfact, blockquote {
         grid-column: 2;
@@ -98,11 +126,11 @@ const StyledArticle = styled.div`
 `
 
 function Article(props) {
-  const { _rawBody, title, mainImage, authors, _rawSources, slug, toc} = props
-  
+  const { _rawBody, title, mainImage, authors, _rawSources, slug, toc } = props
+
   const slugName = slug.current
   const slugPos = toc.findIndex(e => e.includes(slugName))
-  
+
   const nextItem = toc[slugPos + 1]
   const prevItem = toc[slugPos - 1]
 
@@ -112,6 +140,7 @@ function Article(props) {
   return (
     <article>
       <MainImage>
+        <h1>{title}</h1>
         {mainImage && mainImage.asset && (
           <img
             src={imageUrlFor(buildImageObj(mainImage))
@@ -128,7 +157,6 @@ function Article(props) {
           <div id="next-link">{nextItem && nextLink}</div>
           <div id="prev-link">{prevItem && prevLink}</div>
           <div id="content-head">
-            <h1 >{title}</h1>
             {authors && authors.length > 0 && <Person items={authors} title={authors.length > 1 ? 'Forfattere' : 'Forfatter'} />}
           </div>
           <div id="content-main">
@@ -136,10 +164,10 @@ function Article(props) {
           </div>
 
           {_rawSources && _rawSources.length > 0 &&
-            <div id="content-sources">
+            <section id="content-sources">
               <h1>Kilder</h1>
               <BlockContent blocks={_rawSources} />
-            </div>
+            </section>
           }
         </StyledArticle>
       </Container>

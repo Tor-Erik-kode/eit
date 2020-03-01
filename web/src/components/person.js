@@ -4,6 +4,12 @@ import { imageUrlFor } from '../lib/image-url'
 import styled from 'styled-components'
 
 const List = styled.section`
+  h2 {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 1em;
+  }
+
+
   ul {
     margin:0;
     padding: 0;
@@ -13,6 +19,8 @@ const List = styled.section`
     flex-direction: column;
 
     li {
+      font-size: .8em;
+      color: rgba(0, 0, 0, 0.6);
       display: flex;
       flex-wrap: wrap;
       flex-direction: row;
