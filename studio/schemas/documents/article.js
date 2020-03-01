@@ -12,6 +12,15 @@ export default {
       type: 'string'
     },
     {
+      name: 'authors',
+      title: 'Authors',
+      type: 'array',
+      of: [{
+        type: 'reference',
+        to: { type: 'person' }
+      }],
+    },
+    {
       name: 'slug',
       title: 'Slug',
       type: 'slug',
@@ -32,6 +41,11 @@ export default {
       title: 'Body',
       type: 'articlePortableText'
     },
+    {
+      name: 'sources',
+      title: 'Sources',
+      type: 'sourcePortableText'
+    },
   ],
   preview: {
     select: {
@@ -39,7 +53,7 @@ export default {
       slug: 'slug',
       media: 'mainImage'
     },
-    prepare({title = 'No title', slug = {}, media}) {
+    prepare({ title = 'No title', slug = {}, media }) {
       return {
         title,
         media,
