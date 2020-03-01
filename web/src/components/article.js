@@ -35,8 +35,16 @@ const StyledArticle = styled.div`
   grid-template-columns: minmax(20px, auto) minmax(0, ${totalWidth}px) minmax(20px, auto);
   width: 100%;
 
+  color: rgba(0, 0, 0, 0.8);
+
   #content-head, #content-main, #content-sources {
     grid-column: 2;
+  }
+
+  #next-link, #prev-link {
+    justify-self: center;
+    align-self: center;
+
   }
 
   #next-link {
@@ -59,6 +67,8 @@ const StyledArticle = styled.div`
   @media only screen and (max-width: ${totalWidth}px) {
     #next-link, #prev-link {
       grid-column: 2;
+      align-self:auto;
+      justify-self: auto;
     }
   }
 
@@ -67,6 +77,10 @@ const StyledArticle = styled.div`
       font-family: 'Open Sans', sans-serif;
       font-size: 1em;
     }
+    ul {
+      font-size: .8em;
+    }
+    
   }
   
 
@@ -77,9 +91,6 @@ const StyledArticle = styled.div`
       grid-template-rows: auto;
       grid-column-gap: 5%;
       grid-template-columns: minmax(0, ${articleWidth}%) minmax(0, ${100 - articleWidth}%);
-      
-      
-      color: rgba(0, 0, 0, 0.8);
 
       h1, h2, h3, h4, h5, h6 {
         line-height: 1em;
@@ -96,6 +107,7 @@ const StyledArticle = styled.div`
 
       p, ul {
         line-height: 1.6em;
+        font-size: 18px;
       }
       
 
@@ -106,8 +118,12 @@ const StyledArticle = styled.div`
         padding: 10px;
       }
 
-      >:not(.funfact):not(blockquote){
+      >:not(.funfact):not(blockquote):not(figure){
         grid-column: 1; 
+      }
+
+      figure {
+        grid-column: 1/3;
       }
 
       @media only screen and (max-width: ${totalWidth}px) {
@@ -115,6 +131,10 @@ const StyledArticle = styled.div`
         .funfact, blockquote {
           grid-column: 1;
           width: 70%;
+        }
+
+        figure {
+          grid-column: 1; 
         }
       }
       
