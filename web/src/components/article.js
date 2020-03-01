@@ -50,6 +50,12 @@ const StyledArticle = styled.div`
     grid-row: 1;
   }
 
+  #content-head {
+    h1 {
+      font-size: calc(3em + 1vw);
+    }
+  }
+
   @media only screen and (max-width: ${totalWidth}px) {
     #next-link, #prev-link {
       grid-column: 2;
@@ -140,7 +146,6 @@ function Article(props) {
   return (
     <article>
       <MainImage>
-        <h1>{title}</h1>
         {mainImage && mainImage.asset && (
           <img
             src={imageUrlFor(buildImageObj(mainImage))
@@ -154,9 +159,11 @@ function Article(props) {
       </MainImage>
       <Container>
         <StyledArticle>
+
           <div id="next-link">{nextItem && nextLink}</div>
           <div id="prev-link">{prevItem && prevLink}</div>
           <div id="content-head">
+            <h1>{title}</h1>
             {authors && authors.length > 0 && <Person items={authors} title={authors.length > 1 ? 'Forfattere' : 'Forfatter'} />}
           </div>
           <div id="content-main">

@@ -5,7 +5,7 @@ import {imageUrlFor} from '../lib/image-url'
 
 function ArticlePreview (props) {
   return (
-    <Link to={`/article/${props.slug.current}`}>
+    <Link to={`/${props._type}/${props.slug.current}`}>
       <div>
         {props.mainImage && props.mainImage.asset && (
           <img

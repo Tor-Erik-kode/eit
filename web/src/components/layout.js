@@ -4,8 +4,6 @@ import { createGlobalStyle, styled } from 'styled-components'
 import Helmet from 'react-helmet'
 
 const GlobalStyle = createGlobalStyle`
-  @import url(‘https://fonts.googleapis.com/css?family=Caladea:700|Open+Sans&display=swap);
-
   body {
     padding: 0;
     margin: 0;

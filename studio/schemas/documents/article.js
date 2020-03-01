@@ -37,6 +37,12 @@ export default {
       type: 'figure'
     },
     {
+      name: 'description',
+      title: 'Beskrivelse',
+      description: 'Oppsummering/abstrakt',
+      type: 'articlePortableText'
+    },
+    {
       name: 'body',
       title: 'Body',
       type: 'articlePortableText'

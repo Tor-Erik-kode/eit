@@ -1,6 +1,8 @@
 import { StaticQuery, Link } from 'gatsby'
 import React from 'react'
 import styled from 'styled-components'
+import { useRef, useLayoutEffect } from 'react'
+const isBrowser = typeof window !== `undefined`
 
 import TocList from './tocList'
 
@@ -50,17 +52,14 @@ const StyledBurger = styled.button`
 `;
 
 const StyledMenu = styled.nav`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  transform: ${({ open }) => open ? 'translateX(0)' : 'translateX(100%)'};
-  text-align: right;
-  padding: 2rem;
+  visibility: ${props => props.open ? 'visible' : 'hidden'};
+  opacity: ${props => props.open ? '1' : '0'};
   position: absolute;
-  top: 0;
-  right: 0;
-  transition: transform 0.3s ease-in-out;
-  background: white;
+  top: 0; right:0;
+  background-color: rgba(255,255,255,0.9);
+  width: 100vw;
+  height: 100vh;
+  transition: opacity 0.5s, visibility 0.5s;
   ul {
     list-style-type: none;
   }

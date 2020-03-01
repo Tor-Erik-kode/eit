@@ -9,7 +9,6 @@ const List = styled.section`
     font-size: 1em;
   }
 
-
   ul {
     margin:0;
     padding: 0;
