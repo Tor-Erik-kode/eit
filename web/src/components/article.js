@@ -68,8 +68,8 @@ const StyledArticle = styled.div`
       .funfact, blockquote {
         grid-column: 2;
         text-align: center;
-        padding: none;
-        margin: 0px;
+        margin: auto;
+        padding: 10px;
       }
 
       >:not(.funfact):not(blockquote){
@@ -80,6 +80,7 @@ const StyledArticle = styled.div`
         grid-template-columns: minmax(0, ${totalWidth}%);
         .funfact, blockquote {
           grid-column: 1;
+          width: 70%;
         }
       }
       
@@ -87,7 +88,6 @@ const StyledArticle = styled.div`
     }
 
     .funfact {
-
       border: 1px solid black;
     }
 
