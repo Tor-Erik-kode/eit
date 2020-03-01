@@ -1,6 +1,7 @@
 import React from 'react'
 import { buildImageObj } from '../lib/helpers'
 import { imageUrlFor } from '../lib/image-url'
+import { Link } from "gatsby"
 
 import BlockContent from './block-content'
 import Container from './container'
@@ -26,7 +27,7 @@ const MainImage = styled.div`
 `
 
 const articleWidth = 70
-const totalWidth = 800
+const totalWidth = 900
 
 const StyledArticle = styled.div`
 
@@ -44,7 +45,7 @@ const StyledArticle = styled.div`
     div:first-child {
       display: grid;
       grid-template-rows: auto;
-      grid-column-gap: 10px;
+      grid-column-gap: 5%;
       grid-template-columns: minmax(0, ${articleWidth}%) minmax(0, ${100 - articleWidth}%);
 
       .funfact, blockquote {
@@ -68,6 +69,11 @@ const StyledArticle = styled.div`
 
     }
 
+    .funfact {
+
+      border: 1px solid black;
+    }
+
     iframe {
       width: 100%;
     }
@@ -75,8 +81,16 @@ const StyledArticle = styled.div`
 `
 
 function Article(props) {
-  const { _rawBody, title, mainImage, authors, _rawSources } = props
-  console.log(_rawSources)
+  const { _rawBody, title, mainImage, authors, _rawSources, slug, toc} = props
+  
+  const slugName = slug.current
+  const slugPos = toc.findIndex(e => e.includes(slugName))
+  
+  const nextItem = toc[slugPos + 1]
+  const prevItem = toc[slugPos - 1]
+
+  const nextLink = <Link to={`/${nextItem}`}>Neste</Link>
+  const prevLink = <Link to={`/${prevItem}`}>Forrige</Link>
 
   return (
     <article>
@@ -94,6 +108,8 @@ function Article(props) {
       </MainImage>
       <Container>
         <StyledArticle>
+          {nextItem && nextLink}
+          {prevItem && prevLink}
           <div id="content-head">
             <h1 >{title}</h1>
             {authors && authors.length > 0 && <Person items={authors} title={authors.length > 1 ? 'Forfattere' : 'Forfatter'} />}

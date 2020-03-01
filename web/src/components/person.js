@@ -1,37 +1,60 @@
 import React from 'react'
 import { buildImageObj } from '../lib/helpers'
 import { imageUrlFor } from '../lib/image-url'
+import styled from 'styled-components'
+
+const List = styled.section`
+  ul {
+    margin:0;
+    padding: 0;
+    text-indent: 0;
+    list-style-type: none;
+    display: flex;
+    flex-direction: column;
+
+    li {
+      display: flex;
+      flex-wrap: wrap;
+      flex-direction: row;
+      align-items: center;
+      margin-top: 5px;
+    }
+  }
+  
+
+  img {
+    position: relative;
+    width: 3em;
+    height: 3em;
+    background: #eee;
+    border-radius: 50%;
+    overflow: hidden;
+    margin-right: 10px;
+  }
+`
 
 function RoleList({ items, title }) {
   return (
-    <div>
+    <List>
       <h2>{title}</h2>
       <ul>
         {items.map(item => (
           <li key={item._key}>
-            <div>
-              <div>
-                {item && item.image && item.image.asset && (
-                  <img
-                    src={imageUrlFor(buildImageObj(item.image))
-                      .width(100)
-                      .height(100)
-                      .fit('crop')
-                      .url()}
-                    alt=''
-                  />
-                )}
-              </div>
-            </div>
-            <div>
-              <div>
-                <strong>{(item.name) || <em>Missing name</em>}</strong>
-              </div>
-            </div>
+            {item && item.image && item.image.asset && (
+              <img
+                src={imageUrlFor(buildImageObj(item.image))
+                  .width(100)
+                  .height(100)
+                  .fit('crop')
+                  .url()}
+                alt=''
+              />
+            )}
+            <strong>{(item.name) || <em>Missing name</em>}</strong>
           </li>
         ))}
       </ul>
-    </div>
+    </List>
   )
 }
 
