@@ -3,10 +3,13 @@ import Header from './header'
 import { createGlobalStyle, styled } from 'styled-components'
 
 const GlobalStyle = createGlobalStyle`
-  body {
-    margin: 0px;
-  }
+  @import url(‘https://fonts.googleapis.com/css?family=Caladea:700|Open+Sans&display=swap);
 
+  body {
+    padding: 0;
+    margin: 0;
+  }
+  
   .layout {
     display: flex;
     min-height: 100vh;

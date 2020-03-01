@@ -4,6 +4,7 @@ import { imageUrlFor } from '../lib/image-url'
 import BlockContent from './block-content'
 import { StaticQuery, graphql } from "gatsby"
 import styled from 'styled-components'
+import figure from './figure'
 
 const StyledCover = styled.div`
   display: flex;

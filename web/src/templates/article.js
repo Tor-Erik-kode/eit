@@ -61,7 +61,7 @@ export const query = graphql`
         _key
       }
       _rawBody
-      sources
+      _rawSources
     }
   }
 `

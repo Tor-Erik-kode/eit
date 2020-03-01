@@ -9,6 +9,7 @@ const StyledHeader = styled.header`
   top: 0;
   left: 0;
   width: 100%; 
+  z-index: 10;
 `
 
 const StyledBurger = styled.button`
@@ -24,7 +25,7 @@ const StyledBurger = styled.button`
   border: none;
   cursor: pointer;
   padding: 0;
-  z-index: 10;
+  z-index: 11;
   :focus {
     outline: none
   }

@@ -16,6 +16,7 @@ import coverPortableText from './objects/coverPortableText'
 import figure from './objects/figure'
 import articlePortableText from './objects/articlePortableText'
 import simplePortableText from './objects/simplePortableText'
+import sourcePortableText from './objects/sourcePortableText'
 import ingredient from './objects/ingredient'
 import quizPersonalityQuestion from './objects/quizPersonalityQuestion'
 import quizPersonalityType from './objects/quizPersonalityType'
@@ -32,6 +33,7 @@ export default createSchema({
     // When added to this list, object types can be used as
     // { type: 'typename' } in other document schemas
     coverPortableText,
+    sourcePortableText,
     figure,
     articlePortableText,
     simplePortableText,

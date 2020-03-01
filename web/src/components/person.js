@@ -1,10 +1,8 @@
 import React from 'react'
 import { buildImageObj } from '../lib/helpers'
 import { imageUrlFor } from '../lib/image-url'
-import { ucfirst } from '../lib/string-utils'
 
 function RoleList({ items, title }) {
-  console.log(items)
   return (
     <div>
       <h2>{title}</h2>

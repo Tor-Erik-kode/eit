@@ -44,8 +44,7 @@ export default {
     {
       name: 'sources',
       title: 'Sources',
-      type: 'array',
-      of: [{ type: 'string' }]
+      type: 'sourcePortableText'
     },
   ],
   preview: {
