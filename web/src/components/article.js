@@ -38,6 +38,23 @@ const StyledArticle = styled.div`
   #content-head, #content-main, #content-sources {
     grid-column: 2;
   }
+
+  #next-link {
+    grid-column: 3;
+    grid-row: 1;
+    text-align: right;
+  }
+
+  #prev-link {
+    grid-column: 1;
+    grid-row: 1;
+  }
+
+  @media only screen and (max-width: ${totalWidth}px) {
+    #next-link, #prev-link {
+      grid-column: 2;
+    }
+  }
   
 
   #content-main {
@@ -89,8 +106,8 @@ function Article(props) {
   const nextItem = toc[slugPos + 1]
   const prevItem = toc[slugPos - 1]
 
-  const nextLink = <Link to={`/${nextItem}`}>Neste</Link>
-  const prevLink = <Link to={`/${prevItem}`}>Forrige</Link>
+  const nextLink = <Link to={`/${nextItem}`}>Neste artikkel</Link>
+  const prevLink = <Link to={`/${prevItem}`}>Forrige artikkel</Link>
 
   return (
     <article>
@@ -108,8 +125,8 @@ function Article(props) {
       </MainImage>
       <Container>
         <StyledArticle>
-          {nextItem && nextLink}
-          {prevItem && prevLink}
+          <div id="next-link">{nextItem && nextLink}</div>
+          <div id="prev-link">{prevItem && prevLink}</div>
           <div id="content-head">
             <h1 >{title}</h1>
             {authors && authors.length > 0 && <Person items={authors} title={authors.length > 1 ? 'Forfattere' : 'Forfatter'} />}
