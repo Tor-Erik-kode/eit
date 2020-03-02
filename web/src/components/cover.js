@@ -7,20 +7,6 @@ import styled from 'styled-components'
 import figure from './figure'
 
 const StyledCover = styled.div`
-  display: flex;
-  flex-direction: row;
-
-  .coverText{
-    width: 50vw;
-  }
-
-  img {
-    width: 50vw;
-    height: 100vh;
-    vertical-align: top;
-    object-fit: cover;
-  }
-
 
 `
 
@@ -59,7 +45,7 @@ export default () => (
         <div className="coverText">
           {data.site._rawCoverText && <BlockContent blocks={data.site._rawCoverText || []} />}
         </div>
-
+        <figure>
         {
           data.site.cover && data.site.cover.asset && (
             <img
@@ -71,6 +57,7 @@ export default () => (
             />
           )
         }
+        </figure>
       </StyledCover>
     )}
   />

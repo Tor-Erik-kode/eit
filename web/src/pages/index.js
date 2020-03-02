@@ -51,6 +51,7 @@ export const query = graphql`
             }
           }
           title
+          _rawDescription
           slug {
             current
           }
@@ -87,6 +88,7 @@ export const query = graphql`
             }
           }
           title
+          _rawDescription
           slug {
             current
           }
@@ -123,6 +125,7 @@ export const query = graphql`
             }
           }
           title
+          _rawDescription
           slug {
             current
           }
@@ -134,7 +137,13 @@ export const query = graphql`
 `
 
 const Index = styled.article`
+  display: grid;
+  grid-template-columns: 25px 1fr 25px;
+  grid-template-rows: auto;
 
+  section {
+    grid-column: 2;
+  }
 `
 
 const IndexPage = props => {
@@ -179,7 +188,7 @@ const IndexPage = props => {
       <Index>
         <SEO title={site.title} description={site.description} keywords={site.keywords} />
         <section>
-          <Cover />
+        <Cover />
         </section>
         <section>
           <TocList />
