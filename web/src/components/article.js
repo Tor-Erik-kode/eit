@@ -30,7 +30,6 @@ const articleWidth = 70
 const totalWidth = 900
 
 const StyledArticle = styled.div`
-
   display: grid;
   column-gap: 2rem;
   grid-template-columns: minmax(20px, auto) minmax(0, ${totalWidth}px) minmax(20px, auto);
@@ -63,14 +62,13 @@ const StyledArticle = styled.div`
     h1 {
       font-size: calc(3em + 1vw);
       margin-bottom: 0px;
+      line-height: 1em;
     }
 
     #description {
       font-size: calc(1.5em); 
      }
   }
-
-
 
   @media only screen and (max-width: ${totalWidth}px) {
     #next-link, #prev-link {
