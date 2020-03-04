@@ -7,6 +7,7 @@ import styled from 'styled-components'
 
 const StyledCover = styled.div`
   width: 100%;
+  display: flex;
 
   div {
     width: 50%;

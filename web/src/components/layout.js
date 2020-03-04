@@ -20,6 +20,10 @@ const GlobalStyle = createGlobalStyle`
     figure {
       margin:0;
     }
+
+    a {
+      color: #A3D155;
+    }
   }
   
   .layout {
