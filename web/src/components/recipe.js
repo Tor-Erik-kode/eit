@@ -5,9 +5,9 @@ import BlockContent from './block-content'
 import styled from 'styled-components'
 
 const Step = styled.li`
-  width: 100%;
+  width: 50%;
   img {
-    width: 100%;
+    width: 50%;
   }
 `
 
@@ -17,8 +17,7 @@ function Recipe(props) {
     <article>
       <header>
         <h1>{title}</h1>
-        {_rawDescription && <BlockContent blocks={_rawDescription || []} />}
-
+        
         {props.mainImage && mainImage.asset && (
           <div>
             <img
@@ -31,7 +30,7 @@ function Recipe(props) {
             />
           </div>
         )}
-
+        {_rawDescription && <BlockContent blocks={_rawDescription || []} />}
       </header>
       <section>
         <header>Ingredienser</header>
@@ -51,7 +50,7 @@ function Recipe(props) {
           {
             _rawPreparation.map((step, index) => (
               <Step key={index}>
-                <h2>{`Steg ${index + 1}`}</h2>
+                <h2>{`steg`}</h2>
                 {
                   step.image && <img
                     src={imageUrlFor(buildImageObj(step.image))
