@@ -1,21 +1,27 @@
 import { StaticQuery, Link } from 'gatsby'
 import React from 'react'
 import styled from 'styled-components'
-import { useRef, useLayoutEffect } from 'react'
-const isBrowser = typeof window !== `undefined`
 
 import TocList from './tocList'
 
 const StyledHeader = styled.header`
   position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%; 
+  width: 100%;
+  padding: 20px 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
   z-index: 10;
+  background-color: rgba(255,255,255, 0.9);
+  border-bottom: 1px solid rgba(0,0,0,0.1);
+  
+  a {
+    text-decoration: none;
+  }
 `
 
 const StyledBurger = styled.button`
-  position: absolute;
   top: 5%;
   right: 2rem;
   display: flex;
@@ -87,7 +93,7 @@ const Header = ({ onHideNav, onShowNav, showNav, siteTitle, className }) => (
     render={data => (
       <StyledHeader className={className}>
         <div >
-          <Link to='/'>{siteTitle}</Link>
+          <Link to='/'>EiT - Gruppe B</Link>
         </div>
 
         <StyledBurger onClick={showNav ? onHideNav : onShowNav} open={showNav}>

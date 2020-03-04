@@ -33,6 +33,7 @@ const GlobalStyle = createGlobalStyle`
 
   .content {
     flex: 1;
+    padding-top: 70px;
   }
 `
 
