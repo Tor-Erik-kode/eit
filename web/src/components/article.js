@@ -75,7 +75,7 @@ const StyledArticle = styled.div`
   #content-sources {
     h1 {
       font-family: 'Open Sans', sans-serif;
-      font-size: 1em;
+      
     }
     ul {
       font-size: .8em;
@@ -105,9 +105,30 @@ const StyledArticle = styled.div`
         color:rgba(0, 0, 0, 0.8);
       }
 
+      h3 {
+        font-size: calc(1.2em + 1vw);
+      }
+
+      h4 {
+        font-size: calc(1.1em + 1vw);
+      }
+
+      h5 {
+        font-size: 1em;
+      }
+
       p, ul {
         line-height: 1.6em;
         font-size: 18px;
+      }
+
+      
+      figure {
+        width: 100%;
+        height: 100%;
+        img {
+          width: 100%;
+        }
       }
       
 
@@ -118,12 +139,8 @@ const StyledArticle = styled.div`
         padding: 10px;
       }
 
-      >:not(.funfact):not(blockquote):not(figure){
+      >:not(.funfact):not(blockquote){
         grid-column: 1; 
-      }
-
-      figure {
-        grid-column: 1/3;
       }
 
       @media only screen and (max-width: ${totalWidth}px) {
@@ -131,10 +148,6 @@ const StyledArticle = styled.div`
         .funfact, blockquote {
           grid-column: 1;
           width: 70%;
-        }
-
-        figure {
-          grid-column: 1; 
         }
       }
       

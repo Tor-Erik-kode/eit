@@ -63,6 +63,16 @@ const StyledMenu = styled.nav`
   ul {
     list-style-type: none;
   }
+
+  a {
+    font-size: calc(1em + 1vw);
+    color: black;
+    text-decoration: none;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
 `;
 
 const Header = ({ onHideNav, onShowNav, showNav, siteTitle, className }) => (
