@@ -1,10 +1,24 @@
 import {Link} from 'gatsby'
 import React from 'react'
 import ArticlePreview from './article-preview'
+import styled from 'styled-components'
+
+const ArticleGrid = styled.article`
+  ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  a {
+    color: black;
+    text-decoration: none;
+  }
+`
 
 function ArticlePreviewGrid (props) {
   return (
-    <div>
+    <ArticleGrid>
       <ul>
         {props.nodes &&
           props.nodes.map(node => (
@@ -18,7 +32,7 @@ function ArticlePreviewGrid (props) {
           <Link to={props.browseMoreHref}>Browse more</Link>
         </div>
       )}
-    </div>
+    </ArticleGrid>
   )
 }
 

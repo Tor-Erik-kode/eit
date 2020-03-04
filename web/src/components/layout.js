@@ -8,12 +8,21 @@ const GlobalStyle = createGlobalStyle`
     padding: 0;
     margin: 0;
     font-family: 'Open Sans', sans-serif;
-    h1, h2, h3, h4, h5, h6 {
-      font-family: 'Caladea', serif;
+    
+    h1 {
+      font-family: 'Martel', serif;
+    }
+
+    h2, h3, h4, h5, h6 {
+      font-family: 'Open Sans', sans-serif;
     }
 
     figure {
       margin:0;
+    }
+
+    a {
+      color: #A3D155;
     }
   }
   
@@ -28,13 +37,14 @@ const GlobalStyle = createGlobalStyle`
 
   .content {
     flex: 1;
+    padding-top: 70px;
   }
 `
 
 export default ({ children, onHideNav, onShowNav, showNav, siteTitle }) => (
   <>
     <Helmet>
-      <link href="https://fonts.googleapis.com/css?family=Caladea:700|Open+Sans&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css?family=Martel:700|Open+Sans&display=swap" rel="stylesheet" />
     </Helmet>
     <GlobalStyle />
     <div className="layout">

@@ -4,24 +4,20 @@ import { imageUrlFor } from '../lib/image-url'
 import BlockContent from './block-content'
 import { StaticQuery, graphql } from "gatsby"
 import styled from 'styled-components'
-import figure from './figure'
 
 const StyledCover = styled.div`
+  width: 100%;
   display: flex;
-  flex-direction: row;
 
-  .coverText{
-    width: 50vw;
+  div {
+    width: 50%;
+    height: 50%;
+    
+    img {
+      object-fit: cover;
+    }
+    
   }
-
-  img {
-    width: 50vw;
-    height: 100vh;
-    vertical-align: top;
-    object-fit: cover;
-  }
-
-
 `
 
 export default () => (
@@ -59,7 +55,7 @@ export default () => (
         <div className="coverText">
           {data.site._rawCoverText && <BlockContent blocks={data.site._rawCoverText || []} />}
         </div>
-
+        <div>
         {
           data.site.cover && data.site.cover.asset && (
             <img
@@ -71,6 +67,7 @@ export default () => (
             />
           )
         }
+        </div>
       </StyledCover>
     )}
   />

@@ -30,8 +30,8 @@ const articleWidth = 70
 const totalWidth = 900
 
 const StyledArticle = styled.div`
-
   display: grid;
+  column-gap: 2rem;
   grid-template-columns: minmax(20px, auto) minmax(0, ${totalWidth}px) minmax(20px, auto);
   width: 100%;
 
@@ -61,7 +61,13 @@ const StyledArticle = styled.div`
   #content-head {
     h1 {
       font-size: calc(3em + 1vw);
+      margin-bottom: 0px;
+      line-height: 1em;
     }
+
+    #description {
+      font-size: calc(1.5em); 
+     }
   }
 
   @media only screen and (max-width: ${totalWidth}px) {
@@ -75,7 +81,7 @@ const StyledArticle = styled.div`
   #content-sources {
     h1 {
       font-family: 'Open Sans', sans-serif;
-      font-size: 1em;
+      
     }
     ul {
       font-size: .8em;
@@ -94,6 +100,7 @@ const StyledArticle = styled.div`
 
       h1, h2, h3, h4, h5, h6 {
         line-height: 1em;
+        margin-bottom: 0px;
       }
 
       h1 {
@@ -105,9 +112,30 @@ const StyledArticle = styled.div`
         color:rgba(0, 0, 0, 0.8);
       }
 
+      h3 {
+        font-size: calc(1.2em + 1vw);
+      }
+
+      h4 {
+        font-size: calc(1.1em + 1vw);
+      }
+
+      h5 {
+        font-size: 1em;
+      }
+
       p, ul {
-        line-height: 1.6em;
+        line-height: 1.8em;
         font-size: 18px;
+      }
+
+      
+      figure {
+        width: 100%;
+        height: 100%;
+        img {
+          width: 100%;
+        }
       }
       
 
@@ -118,12 +146,8 @@ const StyledArticle = styled.div`
         padding: 10px;
       }
 
-      >:not(.funfact):not(blockquote):not(figure){
+      >:not(.funfact):not(blockquote){
         grid-column: 1; 
-      }
-
-      figure {
-        grid-column: 1/3;
       }
 
       @media only screen and (max-width: ${totalWidth}px) {
@@ -131,10 +155,6 @@ const StyledArticle = styled.div`
         .funfact, blockquote {
           grid-column: 1;
           width: 70%;
-        }
-
-        figure {
-          grid-column: 1; 
         }
       }
       
@@ -184,7 +204,9 @@ function Article(props) {
           <div id="prev-link">{prevItem && prevLink}</div>
           <div id="content-head">
             <h1>{title}</h1>
+            <div id="description">
             {_rawDescription && <BlockContent blocks={_rawDescription || []} />}
+            </div>
             {authors && authors.length > 0 && <Person items={authors} title={authors.length > 1 ? 'Forfattere' : 'Forfatter'} />}
           </div>
           <div id="content-main">

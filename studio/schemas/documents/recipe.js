@@ -53,7 +53,7 @@ export default {
       name: 'preparation',
       title: 'Preparation',
       type: 'array',
-      of: [{type: 'string'}]
+      of: [{type: 'recipeStep'}]
     },
   ],
   preview: {
