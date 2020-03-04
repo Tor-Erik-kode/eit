@@ -22,6 +22,7 @@ import quizPersonalityQuestion from './objects/quizPersonalityQuestion'
 import quizPersonalityType from './objects/quizPersonalityType'
 import quizPersonalityAnswer from './objects/quizPersonalityAnswer'
 import youtube from './objects/youtube'
+import recipeStep from './objects/recipeStep'
 
 // Then we give our schema to the builder and provide the result to Sanity
 export default createSchema({
@@ -42,6 +43,7 @@ export default createSchema({
     quizPersonalityType,
     quizPersonalityAnswer,
     youtube,
+    recipeStep,
     // The following are document types which will appear
     // in the studio.
     person,

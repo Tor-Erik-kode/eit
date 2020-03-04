@@ -16,10 +16,9 @@ export const query = graphql`
         unit
         _key
       }
-      preparation
+      _rawPreparation(resolveReferences: {maxDepth: 10})
       servings
       title
-      
       _rawDescription
       mainImage {
         crop {

@@ -2,9 +2,17 @@ import React from 'react'
 import { buildImageObj } from '../lib/helpers'
 import { imageUrlFor } from '../lib/image-url'
 import BlockContent from './block-content'
+import styled from 'styled-components'
+
+const Step = styled.li`
+  width: 100%;
+  img {
+    width: 100%;
+  }
+`
 
 function Recipe(props) {
-  const { title, ingredients, servings, preparation, _rawDescription, mainImage } = props
+  const { title, ingredients, servings, _rawPreparation, _rawDescription, mainImage } = props
   return (
     <article>
       <header>
@@ -41,10 +49,21 @@ function Recipe(props) {
         <header>Slik gjør du</header>
         <ol>
           {
-            preparation.map((step, index) => (
-              <li key={index}>
-                {step}
-              </li>
+            _rawPreparation.map((step, index) => (
+              <Step key={index}>
+                <h2>{`Steg ${index + 1}`}</h2>
+                {
+                  step.image && <img
+                    src={imageUrlFor(buildImageObj(step.image))
+                      .width(1200)
+                      .height(Math.floor((9 / 16) * 1200))
+                      .fit('crop')
+                      .url()}
+                    alt={mainImage.alt}
+                  />
+                }
+                <p>{step.description}</p>
+              </Step>
             ))
           }
         </ol>
