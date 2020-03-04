@@ -32,6 +32,7 @@ const totalWidth = 900
 const StyledArticle = styled.div`
 
   display: grid;
+  column-gap: 2rem;
   grid-template-columns: minmax(20px, auto) minmax(0, ${totalWidth}px) minmax(20px, auto);
   width: 100%;
 
@@ -61,8 +62,15 @@ const StyledArticle = styled.div`
   #content-head {
     h1 {
       font-size: calc(3em + 1vw);
+      margin-bottom: 0px;
     }
+
+    #description {
+      font-size: calc(1.5em); 
+     }
   }
+
+
 
   @media only screen and (max-width: ${totalWidth}px) {
     #next-link, #prev-link {
@@ -94,6 +102,7 @@ const StyledArticle = styled.div`
 
       h1, h2, h3, h4, h5, h6 {
         line-height: 1em;
+        margin-bottom: 0px;
       }
 
       h1 {
@@ -118,7 +127,7 @@ const StyledArticle = styled.div`
       }
 
       p, ul {
-        line-height: 1.6em;
+        line-height: 1.8em;
         font-size: 18px;
       }
 
@@ -197,7 +206,9 @@ function Article(props) {
           <div id="prev-link">{prevItem && prevLink}</div>
           <div id="content-head">
             <h1>{title}</h1>
+            <div id="description">
             {_rawDescription && <BlockContent blocks={_rawDescription || []} />}
+            </div>
             {authors && authors.length > 0 && <Person items={authors} title={authors.length > 1 ? 'Forfattere' : 'Forfatter'} />}
           </div>
           <div id="content-main">
